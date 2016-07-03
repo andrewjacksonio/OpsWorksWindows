@@ -1,0 +1,23 @@
+---
+driver:
+  name: ec2
+
+provisioner:
+  name: chef_zero
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+#   format: doc
+
+platforms:
+  - name: windows-2012r2
+    transport:
+      username: Administrator
+
+suites:
+  - name: default
+    run_list:
+      - recipe[awesome_customers_windows::default]
+    attributes:
